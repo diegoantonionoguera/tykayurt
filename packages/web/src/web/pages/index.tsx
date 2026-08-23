@@ -1,0 +1,25 @@
+import { Nav } from "../components/sections/nav";
+import { Hero } from "../components/sections/hero";
+import { Marquee } from "../components/sections/marquee";
+import { About } from "../components/sections/about";
+import { Flavors } from "../components/sections/flavors";
+import { Gallery } from "../components/sections/gallery";
+import { Cta } from "../components/sections/cta";
+import { Footer } from "../components/sections/footer";
+
+function Index() {
+  return (
+    <main className="bg-ink">
+      <Nav />
+      <Hero />
+      <Marquee />
+      <About />
+      <Flavors />
+      <Gallery />
+      <Cta />
+      <Footer />
+    </main>
+  );
+}
+
+export default Index;
