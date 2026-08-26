@@ -76,15 +76,15 @@ export function Gallery() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            role="dialog"
+          <motion.dialog
+            open
             aria-modal="true"
             aria-label="Imagem ampliada da galeria TykaYurt"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpen(null)}
-            className="fixed inset-0 z-[60] grid place-items-center bg-ink/92 p-6 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] m-0 grid max-h-none max-w-none place-items-center border-0 bg-ink/92 p-6 backdrop-blur-sm"
           >
             <button
               ref={closeButtonRef}
@@ -105,7 +105,7 @@ export function Gallery() {
               decoding="async"
               className="max-h-[85vh] max-w-full rounded-2xl object-contain"
             />
-          </motion.div>
+          </motion.dialog>
         )}
       </AnimatePresence>
     </section>
