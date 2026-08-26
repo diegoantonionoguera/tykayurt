@@ -30,6 +30,7 @@ export function Cta() {
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <a
             href={whatsappLink("Oi! Quero pedir um TykaYurt. Quais sabores tem hoje?")}
+            data-track="whatsapp_footer"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-3 rounded-full bg-cream px-8 py-4 text-base font-bold text-ink transition-transform hover:scale-[1.03]"

@@ -56,6 +56,7 @@ export function Nav() {
           </a>
           <a
             href={whatsappLink("Oi! Vim pelo site e quero pedir um TykaYurt.")}
+            data-track="whatsapp_header"
             target="_blank"
             rel="noreferrer"
             className="button-press flex items-center gap-2 rounded-full bg-magenta px-5 py-3 text-sm font-bold text-white hover:bg-[#bc1f60] hover:scale-[1.02]"

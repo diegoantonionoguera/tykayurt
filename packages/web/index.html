@@ -20,6 +20,38 @@
 		<meta property="og:image" content="/og-image.png" />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="pt_BR" />
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ6BBBRRH4"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-YQ6BBBRRH4");
+		</script>
+		<!-- Meta Pixel Code -->
+		<script>
+			!(function (f, b, e, v, n, t, s) {
+				if (f.fbq) return;
+				n = f.fbq = function () {
+					n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+				};
+				if (!f._fbq) f._fbq = n;
+				n.push = n;
+				n.loaded = !0;
+				n.version = "2.0";
+				n.queue = [];
+				t = b.createElement(e);
+				t.async = !0;
+				t.src = v;
+				s = b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t, s);
+			})(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+			fbq("init", "8205101376167714");
+			fbq("track", "PageView");
+		</script>
+		<!-- End Meta Pixel Code -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -30,6 +62,44 @@
 	</head>
 	<body>
 		<div id="root"></div>
+		<noscript>
+			<img
+				height="1"
+				width="1"
+				style="display: none"
+				src="https://www.facebook.com/tr?id=8205101376167714&amp;ev=PageView&amp;noscript=1"
+				alt=""
+			/>
+		</noscript>
 		<script type="module" src="/src/web/main.tsx"></script>
+		<script>
+			document.addEventListener("click", function (event) {
+				var target = event.target;
+				if (!(target instanceof Element)) return;
+
+				var trackedElement = target.closest("[data-track]");
+				if (!trackedElement) return;
+
+				var posicao = trackedElement.dataset.track;
+				if (!posicao) return;
+
+				if (typeof gtag === "function") {
+					gtag("event", "click_whatsapp", { posicao: posicao });
+				}
+
+				if (typeof fbq === "function") {
+					if (
+						posicao === "whatsapp_header" ||
+						posicao === "whatsapp_hero" ||
+						posicao === "whatsapp_sabor" ||
+						posicao === "whatsapp_footer"
+					) {
+						fbq("track", "Lead", { posicao: posicao });
+					} else {
+						fbq("trackCustom", "CliqueSecundario", { posicao: posicao });
+					}
+				}
+			});
+		</script>
 	</body>
 </html>

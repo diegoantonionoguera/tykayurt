@@ -68,6 +68,7 @@ export function Hero() {
             >
               <a
                 href={whatsappLink("Oi! Vim pelo site e quero pedir um TykaYurt 🍓")}
+                data-track="whatsapp_hero"
                 target="_blank"
                 rel="noreferrer"
                 className="button-press group flex items-center gap-3 rounded-full bg-magenta px-8 py-4 text-base font-bold text-white hover:bg-[#bc1f60] hover:scale-[1.02]"
@@ -77,6 +78,7 @@ export function Hero() {
               </a>
               <a
                 href="#sabores"
+                data-track="ver_sabores"
                 className="button-press rounded-full border border-line px-8 py-4 text-base font-semibold text-content hover:border-magenta hover:text-magenta"
               >
                 Ver sabores

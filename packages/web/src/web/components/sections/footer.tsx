@@ -17,6 +17,7 @@ export function Footer() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={whatsappLink("Oi! Quero pedir um TykaYurt.")}
+              data-track="whatsapp_footer"
               target="_blank"
               rel="noreferrer"
               className="button-press flex items-center gap-2 rounded-full bg-magenta px-6 py-3 text-sm font-bold text-white hover:bg-[#bc1f60]"

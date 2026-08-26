@@ -105,6 +105,7 @@ export function Flavors() {
 
               <a
                 href={whatsappLink(message)}
+                data-track="whatsapp_sabor"
                 target="_blank"
                 rel="noreferrer"
                 className="button-press mt-4 inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-bold text-white hover:scale-[1.02]"
