@@ -1,23 +1,22 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { whatsappLink } from "../../lib/brand";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section id="topo" ref={ref} className="grain relative overflow-hidden bg-ink pt-28 pb-16 md:pt-36">
+    <section id="topo" ref={ref} className="relative overflow-hidden bg-page pt-28 pb-16 md:pt-36">
       <div
-        className="pointer-events-none absolute -left-40 top-10 h-[520px] w-[520px] rounded-full blur-[130px]"
-        style={{ background: "radial-gradient(circle, rgba(129,0,128,0.55), transparent 70%)" }}
+        className="pointer-events-none absolute -left-40 top-10 h-[520px] w-[520px] rounded-full bg-plum/25 blur-[130px]"
       />
       <div
-        className="pointer-events-none absolute -right-32 bottom-0 h-[420px] w-[420px] rounded-full blur-[130px]"
-        style={{ background: "radial-gradient(circle, rgba(215,39,114,0.45), transparent 70%)" }}
+        className="pointer-events-none absolute -right-32 bottom-0 h-[420px] w-[420px] rounded-full bg-magenta/20 blur-[130px]"
       />
 
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
@@ -25,14 +24,14 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="label text-pink"
+          className="hero-label label"
         >
           Curitiba · Hauer / Boqueirão
         </motion.p>
 
         <div className="mt-6 grid items-end gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <h1 className="font-display text-cream text-[clamp(3.4rem,11vw,9rem)]">
+            <h1 className="text-balance font-display text-content text-[clamp(3.4rem,11vw,8rem)]">
               <motion.span
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -55,7 +54,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="mt-7 max-w-lg text-lg leading-relaxed text-cream/70 md:text-xl"
+              className="mt-7 max-w-lg text-pretty text-lg leading-relaxed text-content-muted md:text-xl"
             >
               Artesanal, cremoso e coberto com geleia feita de fruta inteira. Sem conservantes,
               sem aromatizante, sem atalho. Produzido fresco a cada 48 horas.
@@ -71,14 +70,14 @@ export function Hero() {
                 href={whatsappLink("Oi! Vim pelo site e quero pedir um TykaYurt 🍓")}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-3 rounded-full bg-magenta px-8 py-4 text-base font-bold text-white transition-transform hover:scale-[1.03]"
+                className="button-press group flex items-center gap-3 rounded-full bg-magenta px-8 py-4 text-base font-bold text-white hover:bg-[#bc1f60] hover:scale-[1.02]"
               >
                 <FaWhatsapp className="h-5 w-5" />
                 Pedir no WhatsApp
               </a>
               <a
                 href="#sabores"
-                className="rounded-full border border-cream/25 px-8 py-4 text-base font-semibold text-cream transition-colors hover:border-pink hover:text-pink"
+                className="button-press rounded-full border border-line px-8 py-4 text-base font-semibold text-content hover:border-magenta hover:text-magenta"
               >
                 Ver sabores
               </a>
@@ -88,26 +87,28 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-cream/55"
+              className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-content-muted"
             >
               <span>500 ml — R$ 20</span>
-              <span className="text-cream/20">·</span>
-              <span>250 ml — R$ 12</span>
-              <span className="text-cream/20">·</span>
+              <span className="text-line">·</span>
               <span>Entrega combinada no WhatsApp</span>
             </motion.div>
           </div>
 
-          <motion.div style={{ y, opacity: fade }} className="relative">
+          <motion.div style={reduceMotion ? undefined : { y, opacity: fade }} className="relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="relative overflow-hidden rounded-[28px] border border-white/10"
+              className="relative overflow-hidden rounded-2xl shadow-[var(--shadow-elevated)]"
             >
               <img
-                src="/images/morango-hero.png"
+                src="/images/morango-hero.webp"
                 alt="Pote de iogurte artesanal TykaYurt com geleia de morango"
+                width="1080"
+                height="1350"
+                fetchPriority="high"
+                decoding="async"
                 className="w-full object-cover"
               />
             </motion.div>

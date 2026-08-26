@@ -9,7 +9,7 @@ import { Footer } from "../components/sections/footer";
 
 function Index() {
   return (
-    <main className="bg-ink">
+    <main id="conteudo" tabIndex={-1} className="bg-page text-content">
       <Nav />
       <Hero />
       <Marquee />

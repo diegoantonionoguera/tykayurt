@@ -13,12 +13,16 @@ export type Flavor = {
   tagline: string;
   description: string;
   accent: string;
-  bg: string;
+  bgLight: string;
+  bgDark: string;
   image: string;
-  post: string;
-  soon?: boolean;
-  hero?: boolean;
 };
+
+export const PRODUCT = {
+  size: "500 ml",
+  price: "R$ 20",
+  note: "tamanho família",
+} as const;
 
 export const FLAVORS: Flavor[] = [
   {
@@ -27,11 +31,10 @@ export const FLAVORS: Flavor[] = [
     tagline: "O carro-chefe",
     description:
       "Geleia de morango feita com fruta inteira, cozida devagar até ficar densa e vermelha de verdade. Doçura equilibrada, acidez presente.",
-    accent: "#d72772",
-    bg: "#3a0f22",
-    image: "/images/morango-hero.png",
-    post: "/images/morango-post.png",
-    hero: true,
+    accent: "#c21863",
+    bgLight: "#fff0f5",
+    bgDark: "#3a0f22",
+    image: "/images/morango-hero.webp",
   },
   {
     id: "amora",
@@ -40,9 +43,9 @@ export const FLAVORS: Flavor[] = [
     description:
       "Amoras escuras em geleia rústica, com sementinhas e tudo. Sabor marcante para quem gosta de fruta ácida e encorpada.",
     accent: "#a12ea0",
-    bg: "#2a0f36",
-    image: "/images/amora-hero.png",
-    post: "/images/amora-post.png",
+    bgLight: "#f8effa",
+    bgDark: "#2a0f36",
+    image: "/images/amora-hero.webp",
   },
   {
     id: "abacaxi",
@@ -51,36 +54,8 @@ export const FLAVORS: Flavor[] = [
     description:
       "Abacaxi em pedaços caramelizados no próprio suco. Fresco, cítrico e leve — o preferido nos dias quentes.",
     accent: "#e8a317",
-    bg: "#3a2a06",
-    image: "/images/abacaxi-hero.png",
-    post: "/images/abacaxi-post.png",
+    bgLight: "#fff7df",
+    bgDark: "#3a2a06",
+    image: "/images/abacaxi-hero.webp",
   },
-  {
-    id: "ameixa",
-    name: "Ameixa",
-    tagline: "Doce na medida",
-    description:
-      "Ameixa cozida lentamente até virar geleia aveludada. Aveludado, levemente amadeirado, sem exagero no açúcar.",
-    accent: "#7a1b4a",
-    bg: "#2b0f1d",
-    image: "/images/morango-post.png",
-    post: "/images/morango-post.png",
-  },
-  {
-    id: "pessego",
-    name: "Pêssego",
-    tagline: "Em desenvolvimento",
-    description:
-      "Nosso próximo sabor está em teste na cozinha. Chame no WhatsApp para entrar na lista e provar primeiro.",
-    accent: "#f585b6",
-    bg: "#33212a",
-    image: "/images/abacaxi-post.png",
-    post: "/images/abacaxi-post.png",
-    soon: true,
-  },
-];
-
-export const SIZES = [
-  { id: "500", label: "500 ml", price: "R$ 20", note: "tamanho família" },
-  { id: "250", label: "250 ml", price: "R$ 12", note: "porção individual" },
 ];

@@ -1,4 +1,6 @@
 import app from "./api";
+import { withSecurityHeaders } from "./security";
+import { resolveStaticFilePath } from "./static-files";
 
 const port = Number(process.env.PORT ?? 3000);
 const distDir = `${import.meta.dirname}/../dist`;
@@ -10,34 +12,43 @@ const server = Bun.serve({
     const url = new URL(request.url);
 
     if (url.pathname.startsWith("/api")) {
-      return app.fetch(request);
+      return withSecurityHeaders(await app.fetch(request), request.url);
     }
 
-    const filePath = getStaticFilePath(url.pathname);
+    const filePath = resolveStaticFilePath(distDir, url.pathname);
+    if (!filePath) {
+      return withSecurityHeaders(
+        new Response("Not found", {
+          status: 404,
+          headers: { "Content-Type": "text/plain; charset=utf-8" },
+        }),
+        request.url,
+      );
+    }
     const file = Bun.file(filePath);
 
     if (await file.exists()) {
-      return new Response(file);
+      return withSecurityHeaders(new Response(file), request.url);
     }
 
     const index = Bun.file(indexPath);
     if (await index.exists()) {
-      return new Response(index, {
-        headers: { "Content-Type": "text/html; charset=utf-8" },
-      });
+      return withSecurityHeaders(
+        new Response(index, {
+          headers: { "Content-Type": "text/html; charset=utf-8" },
+        }),
+        request.url,
+      );
     }
 
-    return new Response("Build output not found. Run `bun run build` first.", {
-      status: 500,
-      headers: { "Content-Type": "text/plain; charset=utf-8" },
-    });
+    return withSecurityHeaders(
+      new Response("Build output not found. Run `bun run build` first.", {
+        status: 500,
+        headers: { "Content-Type": "text/plain; charset=utf-8" },
+      }),
+      request.url,
+    );
   },
 });
 
 console.log(`Web server listening on http://localhost:${server.port}`);
-
-function getStaticFilePath(pathname: string) {
-  const cleanPath = decodeURIComponent(pathname).replace(/^\/+/, "").replaceAll("..", "");
-
-  return cleanPath ? `${distDir}/${cleanPath}` : indexPath;
-}

@@ -12,6 +12,8 @@ web-build
 # code coverage
 coverage
 *.lcov
+playwright-report/
+test-results/
 
 # logs
 logs

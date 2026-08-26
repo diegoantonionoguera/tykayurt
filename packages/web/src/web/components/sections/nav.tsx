@@ -19,15 +19,17 @@ export function Nav() {
   }, []);
 
   return (
-    <header
+    <>
+      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
+      <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-ink/85 backdrop-blur-xl border-b border-white/10" : "bg-transparent"
+        scrolled ? "nav-material backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10">
         <a href="#topo" className="flex items-center gap-3">
-          <img src="/images/logo.png" alt="TykaYurt" className="h-11 w-11 rounded-full object-cover" />
-          <span className="font-display text-xl tracking-tight text-cream md:text-2xl">TykaYurt</span>
+          <img src="/images/logo.png" alt="" width="44" height="44" className="h-11 w-11 rounded-full object-cover" />
+          <span className="font-display text-xl tracking-tight text-content md:text-2xl">TykaYurt</span>
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">
@@ -35,7 +37,7 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="label text-cream/70 transition-colors hover:text-pink"
+              className="label text-content-muted transition-colors hover:text-magenta"
             >
               {l.label}
             </a>
@@ -48,7 +50,7 @@ export function Nav() {
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram da TykaYurt"
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-cream transition-colors hover:border-pink hover:text-pink"
+            className="button-press grid h-11 w-11 place-items-center rounded-full border border-line text-content hover:border-magenta hover:text-magenta"
           >
             <FaInstagram className="h-5 w-5" />
           </a>
@@ -56,7 +58,7 @@ export function Nav() {
             href={whatsappLink("Oi! Vim pelo site e quero pedir um TykaYurt.")}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 rounded-full bg-magenta px-5 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.03]"
+            className="button-press flex items-center gap-2 rounded-full bg-magenta px-5 py-3 text-sm font-bold text-white hover:bg-[#bc1f60] hover:scale-[1.02]"
           >
             <FaWhatsapp className="h-4 w-4" />
             <span className="hidden sm:inline">Pedir agora</span>
@@ -64,6 +66,7 @@ export function Nav() {
           </a>
         </div>
       </div>
-    </header>
+      </header>
+    </>
   );
 }
