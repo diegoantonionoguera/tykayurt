@@ -45,8 +45,8 @@
   --color-flavor-strong: var(--flavor-border-strong);
   --color-flavor-accent: var(--flavor-accent);
 
-  --font-display: "Anton", "Arial Narrow", sans-serif;
-  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Lobster", "Brush Script MT", cursive;
+  --font-body: "Open Sans", Arial, sans-serif;
 }
 
 :root {
@@ -138,9 +138,9 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    line-height: 0.88;
-    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
   .text-balance {
     text-wrap: balance;

@@ -20,8 +20,8 @@ Sabores (cor de acento por card): Morango #C21863 · Abacaxi #E8A317 · Amora #8
 
 ## Typography
 
-- **Display**: Anton — títulos em caixa alta, tracking apertado, escala grande (clamp até ~9rem).
-- **Body**: Manrope — corpo, labels, botões. Line-height generoso (1.7), labels em uppercase com letter-spacing 0.2em.
+- **Display**: Lobster 400 — títulos, wordmark textual e números de destaque, com ênfase por escala e cor.
+- **Body**: Open Sans 400–800 — corpo, labels, botões e navegação. Line-height generoso (1.7), labels em uppercase com letter-spacing 0.2em.
 
 ## Tom de marca
 

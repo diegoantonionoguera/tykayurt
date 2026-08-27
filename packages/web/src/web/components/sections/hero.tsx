@@ -31,14 +31,14 @@ export function Hero() {
 
         <div className="mt-6 grid items-end gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <h1 className="text-balance font-display text-content text-[clamp(3.4rem,11vw,8rem)]">
+            <h1 className="max-w-[12ch] text-balance font-display text-content text-[clamp(3.1rem,9vw,6rem)]">
               <motion.span
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.05 }}
                 className="block"
               >
-                Iogurte
+                Iogurte artesanal
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 40 }}

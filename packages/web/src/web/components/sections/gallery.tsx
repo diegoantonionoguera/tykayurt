@@ -44,8 +44,7 @@ export function Gallery() {
             </h2>
           </div>
           <p className="max-w-sm text-pretty text-content-muted">
-            Sem banco de imagem: tudo que você vê aqui é o pote que chega até você. Clique para
-            ampliar.
+            Clique para ampliar.
           </p>
         </div>
 

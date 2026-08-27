@@ -1,0 +1,23 @@
+# TykaYurt
+
+> A TykaYurt produz iogurte artesanal em Curitiba, no Hauer e Boqueirão, com geleia feita de fruta de verdade, sem conservantes e em pequenos lotes renovados a cada 48 horas.
+
+## Site oficial
+
+- [TykaYurt](https://tykayurt-web.vercel.app/): conheça a marca, os diferenciais, os sabores disponíveis e como pedir.
+
+## Produtos e atendimento
+
+- Produto: iogurte artesanal TykaYurt de 500 ml.
+- Sabores disponíveis: Morango, Amora e Abacaxi.
+- Produção: no máximo 18 potes por dia, com novos lotes a cada 48 horas.
+- Região de atendimento: Curitiba, especialmente Hauer e Boqueirão.
+- Pedidos: WhatsApp pelo número +55 41 9173-1323.
+- Instagram oficial: [@tykayurt_oficial](https://www.instagram.com/tykayurt_oficial).
+
+## Diferenciais
+
+- Geleia produzida com fruta de verdade.
+- Sem conservantes e sem aromatizantes artificiais.
+- Produção artesanal em pequenos lotes.
+- Produto mantido refrigerado.
