@@ -1,35 +1,35 @@
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
 const SHOTS = [
-  { src: "/images/morango-hero.webp", alt: "Calda de morango caindo no pote", span: "md:row-span-2" },
-  { src: "/images/amora-post.webp", alt: "Pote de iogurte com geleia de amora", span: "" },
-  { src: "/images/abacaxi-post.webp", alt: "Pote de iogurte com geleia de abacaxi", span: "" },
-  { src: "/images/amora-hero.webp", alt: "Calda de amora caindo no pote", span: "md:row-span-2" },
-  { src: "/images/morango-post.webp", alt: "Pote de iogurte com geleia de morango", span: "" },
-  { src: "/images/abacaxi-hero.webp", alt: "Calda de abacaxi caindo no pote", span: "" },
+  { src: "/images/morango-hero.webp", alt: "Calda de morango caindo no pote", span: "md:row-span-2", width: 1080, height: 1350 },
+  { src: "/images/amora-post.webp", alt: "Pote de iogurte com geleia de amora", span: "", width: 1080, height: 1080 },
+  { src: "/images/abacaxi-post.webp", alt: "Pote de iogurte com geleia de abacaxi", span: "", width: 1080, height: 1080 },
+  { src: "/images/amora-hero.webp", alt: "Calda de amora caindo no pote", span: "md:row-span-2", width: 1080, height: 1350 },
+  { src: "/images/morango-post.webp", alt: "Pote de iogurte com geleia de morango", span: "", width: 1080, height: 1080 },
+  { src: "/images/abacaxi-hero.webp", alt: "Calda de abacaxi caindo no pote", span: "", width: 1080, height: 1350 },
 ];
 
 export function Gallery() {
   const [open, setOpen] = useState<string | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     if (!open) return;
 
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(null);
-    };
-
+    const dialog = dialogRef.current;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKeyDown);
+    if (dialog && !dialog.open) dialog.showModal();
     closeButtonRef.current?.focus();
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", onKeyDown);
+      if (dialog?.open) dialog.close();
+      triggerRef.current?.focus();
     };
   }, [open]);
 
@@ -50,9 +50,12 @@ export function Gallery() {
 
         <div className="mt-12 grid auto-rows-[220px] grid-cols-2 gap-4 md:grid-cols-4 md:auto-rows-[240px]">
           {SHOTS.map((shot, i) => (
-            <motion.button
+            <m.button
               key={shot.src + i}
-              onClick={() => setOpen(shot.src)}
+              onClick={(event) => {
+                triggerRef.current = event.currentTarget;
+                setOpen(shot.src);
+              }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -63,27 +66,33 @@ export function Gallery() {
               <img
                 src={shot.src}
                 alt={shot.alt}
+                width={shot.width}
+                height={shot.height}
                 loading="lazy"
                 decoding="async"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <span aria-hidden="true" className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/20" />
-            </motion.button>
+            </m.button>
           ))}
         </div>
       </div>
 
       <AnimatePresence>
         {open && (
-          <motion.dialog
-            open
+          <m.dialog
+            ref={dialogRef}
             aria-modal="true"
             aria-label="Imagem ampliada da galeria TykaYurt"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpen(null)}
-            className="fixed inset-0 z-[60] m-0 grid max-h-none max-w-none place-items-center border-0 bg-ink/92 p-6 backdrop-blur-sm"
+            onCancel={(event) => {
+              event.preventDefault();
+              setOpen(null);
+            }}
+            className="fixed inset-0 z-[60] m-0 max-h-none max-w-none overscroll-contain border-0 bg-ink/92 p-6 backdrop-blur-sm open:grid open:place-items-center"
           >
             <button
               ref={closeButtonRef}
@@ -93,7 +102,7 @@ export function Gallery() {
             >
               <X className="h-5 w-5" />
             </button>
-            <motion.img
+            <m.img
               initial={{ scale: 0.93, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
@@ -104,7 +113,7 @@ export function Gallery() {
               decoding="async"
               className="max-h-[85vh] max-w-full rounded-2xl object-contain"
             />
-          </motion.dialog>
+          </m.dialog>
         )}
       </AnimatePresence>
     </section>

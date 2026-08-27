@@ -22,7 +22,7 @@ export function Nav() {
     <>
       <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ${
         scrolled ? "nav-material backdrop-blur-xl" : "bg-transparent"
       }`}
     >

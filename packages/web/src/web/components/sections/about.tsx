@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 const STATS = [
   { value: "48h", label: "Novo lote a cada dois dias" },
@@ -12,7 +12,7 @@ export function About() {
     <section id="sobre" className="relative bg-surface py-24 text-content md:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -24,9 +24,9 @@ export function About() {
               <br />
               em lotes pequenos
             </h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -46,12 +46,12 @@ export function About() {
             <p className="border-l border-magenta pl-5 font-medium text-content">
               Fresco de verdade, feito à mão e pronto para chegar à sua mesa no melhor momento.
             </p>
-          </motion.div>
+          </m.div>
         </div>
 
         <div className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-line md:grid-cols-4">
           {STATS.map((s, i) => (
-            <motion.div
+            <m.div
               key={s.value}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export function About() {
             >
               <p className="font-display text-[clamp(2.6rem,5vw,4rem)] text-plum">{s.value}</p>
               <p className="mt-2 text-sm leading-snug text-content-muted">{s.label}</p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

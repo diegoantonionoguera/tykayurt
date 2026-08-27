@@ -1,3 +1,20 @@
-// Entry point referenced by index.html — composition only, real bootstrap
-// lives in __main.tsx (template-managed).
-import "./__main";
+import { StrictMode } from "react";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import "./styles.css";
+import App from "./app";
+
+const container = document.getElementById("root");
+
+if (!container) throw new Error("Elemento raiz da aplicação não encontrado.");
+
+const application = (
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+
+if (container.hasChildNodes()) {
+  hydrateRoot(container, application);
+} else {
+  createRoot(container).render(application);
+}

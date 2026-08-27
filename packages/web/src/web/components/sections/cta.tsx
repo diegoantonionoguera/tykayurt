@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappLink } from "../../lib/brand";
 
@@ -12,7 +12,7 @@ export function Cta() {
             "radial-gradient(circle at 20% 20%, rgba(215,39,114,0.6), transparent 55%), radial-gradient(circle at 85% 80%, rgba(245,133,182,0.45), transparent 55%)",
         }}
       />
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -47,7 +47,7 @@ export function Cta() {
             <FaInstagram className="h-5 w-5" />@{INSTAGRAM_HANDLE}
           </a>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

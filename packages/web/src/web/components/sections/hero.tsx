@@ -1,4 +1,4 @@
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { m, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { whatsappLink } from "../../lib/brand";
@@ -20,37 +20,37 @@ export function Hero() {
       />
 
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="hero-label label"
         >
           Curitiba · Hauer / Boqueirão
-        </motion.p>
+        </m.p>
 
         <div className="mt-6 grid items-end gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <h1 className="max-w-[12ch] text-balance font-display text-content text-[clamp(3.1rem,9vw,6rem)]">
-              <motion.span
+              <m.span
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.05 }}
                 className="block"
               >
                 Iogurte artesanal
-              </motion.span>
-              <motion.span
+              </m.span>
+              <m.span
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
                 className="block text-magenta"
               >
                 de verdade
-              </motion.span>
+              </m.span>
             </h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -58,9 +58,9 @@ export function Hero() {
             >
               Artesanal, cremoso e coberto com geleia feita de fruta inteira. Sem conservantes,
               sem aromatizante, sem atalho. Produzido fresco a cada 48 horas.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.42 }}
@@ -83,9 +83,9 @@ export function Hero() {
               >
                 Ver sabores
               </a>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -94,11 +94,11 @@ export function Hero() {
               <span>500 ml — R$ 20</span>
               <span className="text-line">·</span>
               <span>Entrega combinada no WhatsApp</span>
-            </motion.div>
+            </m.div>
           </div>
 
-          <motion.div style={reduceMotion ? undefined : { y, opacity: fade }} className="relative">
-            <motion.div
+          <m.div style={reduceMotion ? undefined : { y, opacity: fade }} className="relative">
+            <m.div
               initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.9, delay: 0.2 }}
@@ -113,9 +113,9 @@ export function Hero() {
                 decoding="async"
                 className="w-full object-cover"
               />
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.75 }}
@@ -127,9 +127,9 @@ export function Hero() {
                 <br />
                 sempre fresco
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.9 }}
@@ -141,8 +141,8 @@ export function Hero() {
                 <br />
                 por dia
               </p>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </div>
     </section>

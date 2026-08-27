@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { type CSSProperties, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { FLAVORS, PRODUCT, whatsappLink } from "../../lib/brand";
@@ -41,7 +41,7 @@ export function Flavors() {
               key={f.id}
               onClick={() => setActive(i)}
               aria-pressed={i === active}
-              className={`rounded-full border px-6 py-3 text-sm font-bold transition-all ${
+              className={`rounded-full border px-6 py-3 text-sm font-bold transition-[background-color,border-color,color,box-shadow,transform] ${
                 i === active
                   ? "border-transparent text-white shadow-sm"
                   : "border-flavor text-flavor-muted hover:border-flavor-strong hover:text-flavor-content"
@@ -56,7 +56,7 @@ export function Flavors() {
         <div className="mt-12 grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="relative min-h-[420px] md:min-h-[540px]">
             <AnimatePresence mode="wait">
-              <motion.img
+              <m.img
                 key={flavor.id}
                 src={flavor.image}
                 alt={`Iogurte TykaYurt sabor ${flavor.name}`}
@@ -74,7 +74,7 @@ export function Flavors() {
           </div>
 
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={flavor.id}
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -114,7 +114,7 @@ export function Flavors() {
                 <FaWhatsapp className="h-5 w-5" />
                 Pedir {flavor.name} {PRODUCT.size}
               </a>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
       </div>
