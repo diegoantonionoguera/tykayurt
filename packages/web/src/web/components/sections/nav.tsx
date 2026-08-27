@@ -35,13 +35,19 @@ export function Nav() {
             height="44"
             className="h-11 w-11 object-contain"
           />
-          <img
-            src="/images/logo-tykayurt.svg"
-            alt="TykaYurt"
-            width="1080"
-            height="335"
-            className="h-8 w-auto md:h-9"
-          />
+          <picture className="shrink-0">
+            <source
+              media="(prefers-color-scheme: dark)"
+              srcSet="/images/logo-tykayurt-white.svg"
+            />
+            <img
+              src="/images/logo-tykayurt.svg"
+              alt="TykaYurt"
+              width="1080"
+              height="335"
+              className="h-8 w-auto md:h-9"
+            />
+          </picture>
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">
