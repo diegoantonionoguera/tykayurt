@@ -28,8 +28,20 @@ export function Nav() {
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10">
         <a href="#topo" className="flex items-center gap-3">
-          <img src="/images/logo.png" alt="" width="44" height="44" className="h-11 w-11 rounded-full object-cover" />
-          <span className="font-display text-xl tracking-tight text-content md:text-2xl">TykaYurt</span>
+          <img
+            src="/images/isologo-tykayurt.svg"
+            alt=""
+            width="44"
+            height="44"
+            className="h-11 w-11 object-contain"
+          />
+          <img
+            src="/images/logo-tykayurt.svg"
+            alt="TykaYurt"
+            width="1080"
+            height="335"
+            className="h-8 w-auto md:h-9"
+          />
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">

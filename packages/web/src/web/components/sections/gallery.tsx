@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
 const SHOTS = [
-  { src: "/images/morango-hero.webp", alt: "Geleia de morango sobre pote de iogurte artesanal TykaYurt", span: "md:row-span-2", width: 1080, height: 1350 },
-  { src: "/images/amora-post.webp", alt: "Pote de iogurte natural com geleia de amora", span: "", width: 1080, height: 1080 },
-  { src: "/images/abacaxi-post.webp", alt: "Pote de iogurte artesanal com geleia de abacaxi", span: "", width: 1080, height: 1080 },
-  { src: "/images/amora-hero.webp", alt: "Geleia de amora escorrendo sobre o pote TykaYurt", span: "md:row-span-2", width: 1080, height: 1350 },
+  { src: "/images/morango-a.webp", alt: "Pote de iogurte artesanal TykaYurt com geleia de morango", span: "md:row-span-2", width: 720, height: 1080 },
+  { src: "/images/morango-b.webp", alt: "Pote de iogurte natural com geleia de morango", span: "", width: 1080, height: 1080 },
+  { src: "/images/amora-b.webp", alt: "Pote de iogurte artesanal com geleia de amora", span: "", width: 1080, height: 1080 },
+  { src: "/images/abacaxi-a.webp", alt: "Pote de iogurte TykaYurt com geleia de abacaxi", span: "md:row-span-2", width: 720, height: 1080 },
   { src: "/images/morango-post.webp", alt: "Pote TykaYurt de morango produzido fresco em Curitiba", span: "", width: 1080, height: 1080 },
   { src: "/images/abacaxi-hero.webp", alt: "Geleia de abacaxi em pedaços sobre o iogurte TykaYurt", span: "", width: 1080, height: 1350 },
 ];

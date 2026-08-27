@@ -7,7 +7,15 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="flex flex-col gap-8 border-t border-line pt-10 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <img src="/images/logo.png" alt="" width="56" height="56" loading="lazy" decoding="async" className="h-14 w-14 rounded-full object-cover" />
+            <img
+              src="/images/isologo-tykayurt.svg"
+              alt=""
+              width="56"
+              height="56"
+              loading="lazy"
+              decoding="async"
+              className="h-14 w-14 object-contain"
+            />
             <div>
               <p className="font-display text-2xl text-content">TykaYurt</p>
               <p className="text-sm text-content-muted">Iogurte artesanal · Curitiba — Hauer / Boqueirão</p>
