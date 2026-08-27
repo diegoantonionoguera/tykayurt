@@ -30,8 +30,8 @@ export function Flavors() {
             </h2>
           </div>
           <p className="max-w-sm text-pretty text-flavor-muted">
-            Todos os potes levam a mesma base cremosa. O que muda é a geleia — cozida com fruta
-            inteira, uma panela por vez.
+            Todos os potes levam a mesma base cremosa. O que muda é a geleia, feita com fruta
+            inteira. Feito em lote pequeno, com atenção em cada pote.
           </p>
         </div>
 

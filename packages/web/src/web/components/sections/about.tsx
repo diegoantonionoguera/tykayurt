@@ -40,12 +40,11 @@ export function About() {
             </p>
             <p>
               Produzimos no máximo <strong className="text-content">18 unidades por dia</strong> e
-              renovamos a produção a cada 48 horas. Por isso a validade é curta: é exatamente essa
-              a prova de que não tem conservante nenhum ali dentro.
+              renovamos a produção a cada 48 horas. Cada novo lote celebra o frescor e o cuidado de
+              um iogurte artesanal sem conservantes.
             </p>
             <p className="border-l border-magenta pl-5 font-medium text-content">
-              Se durar meses na geladeira, não é artesanal. O nosso dura poucos dias — e some antes
-              disso.
+              Fresco de verdade, feito à mão e pronto para chegar à sua mesa no melhor momento.
             </p>
           </motion.div>
         </div>

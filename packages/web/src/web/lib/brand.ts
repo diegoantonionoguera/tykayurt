@@ -30,7 +30,7 @@ export const FLAVORS: Flavor[] = [
     name: "Morango",
     tagline: "O carro-chefe",
     description:
-      "Geleia de morango feita com fruta inteira, cozida devagar até ficar densa e vermelha de verdade. Doçura equilibrada, acidez presente.",
+      "Morango de verdade, sentido em cada colherada. A geleia é feita com fruta de verdade, não com xarope — por isso o sabor é limpo, fresco, sem aquele doce artificial que a gente já cansou de comer.",
     accent: "#c21863",
     bgLight: "#fff0f5",
     bgDark: "#3a0f22",

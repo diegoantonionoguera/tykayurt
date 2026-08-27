@@ -23,6 +23,12 @@ Sabores (cor de acento por card): Morango #C21863 · Abacaxi #E8A317 · Amora #8
 - **Display**: Anton — títulos em caixa alta, tracking apertado, escala grande (clamp até ~9rem).
 - **Body**: Manrope — corpo, labels, botões. Line-height generoso (1.7), labels em uppercase com letter-spacing 0.2em.
 
+## Tom de marca
+
+- Comunicar o frescor com orgulho e afirmação, nunca como desculpa ou limitação.
+- Não comparar a validade do TykaYurt com a de produtos concorrentes.
+- Evitar construções defensivas sobre conservação ou duração; destacar produção recente, cuidado artesanal e ausência de conservantes.
+
 ## Pages & Sections
 
 - **Web — Home** (`packages/web/src/web/pages/index.tsx`), composta por seções em `src/web/components/sections/`:

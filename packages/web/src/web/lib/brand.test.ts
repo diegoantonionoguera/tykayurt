@@ -7,6 +7,14 @@ describe("brand data", () => {
     expect(JSON.stringify(FLAVORS)).not.toMatch(/Ameixa|Pêssego/i);
   });
 
+  it("uses the approved Morango description", () => {
+    const morango = FLAVORS.find((flavor) => flavor.id === "morango");
+
+    expect(morango?.description).toBe(
+      "Morango de verdade, sentido em cada colherada. A geleia é feita com fruta de verdade, não com xarope — por isso o sabor é limpo, fresco, sem aquele doce artificial que a gente já cansou de comer.",
+    );
+  });
+
   it("keeps the single product size and price", () => {
     expect(PRODUCT).toEqual({ size: "500 ml", price: "R$ 20", note: "tamanho família" });
     expect(JSON.stringify(PRODUCT)).not.toMatch(/250|R\$ 12/);

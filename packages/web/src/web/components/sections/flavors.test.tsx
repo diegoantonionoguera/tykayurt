@@ -37,4 +37,13 @@ describe("Flavors", () => {
 
     expect(explanation.compareDocumentPosition(orderLink) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
+
+  it("uses the approved small-batch copy", () => {
+    render(<Flavors />);
+
+    expect(
+      screen.getByText(/Feito em lote pequeno, com atenção em cada pote\./i),
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/uma panela (por|de cada) vez/i)).not.toBeInTheDocument();
+  });
 });
