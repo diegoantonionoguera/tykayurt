@@ -8,7 +8,7 @@ export function Footer() {
         <div className="flex flex-col gap-8 border-t border-line pt-10 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
             <img
-              src="/images/isologo-tykayurt.svg"
+              src="/images/isologo-tykayurt.webp"
               alt=""
               width="56"
               height="56"

@@ -29,7 +29,7 @@ export function Nav() {
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10">
         <a href="#topo" className="flex items-center gap-3">
           <img
-            src="/images/isologo-tykayurt.svg"
+            src="/images/isologo-tykayurt.webp"
             alt=""
             width="44"
             height="44"
