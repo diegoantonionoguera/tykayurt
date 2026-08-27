@@ -20,9 +20,9 @@ export function About() {
           >
             <p className="label text-magenta">Sobre a marca</p>
             <h2 className="mt-5 text-balance font-display text-[clamp(2.4rem,6vw,4.6rem)] text-content">
-              Feito à mão,
+              Iogurte sem conservantes,
               <br />
-              em lotes pequenos
+              feito à mão em lotes pequenos
             </h2>
           </m.div>
 

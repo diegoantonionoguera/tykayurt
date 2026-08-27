@@ -3,12 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
 const SHOTS = [
-  { src: "/images/morango-hero.webp", alt: "Calda de morango caindo no pote", span: "md:row-span-2", width: 1080, height: 1350 },
-  { src: "/images/amora-post.webp", alt: "Pote de iogurte com geleia de amora", span: "", width: 1080, height: 1080 },
-  { src: "/images/abacaxi-post.webp", alt: "Pote de iogurte com geleia de abacaxi", span: "", width: 1080, height: 1080 },
-  { src: "/images/amora-hero.webp", alt: "Calda de amora caindo no pote", span: "md:row-span-2", width: 1080, height: 1350 },
-  { src: "/images/morango-post.webp", alt: "Pote de iogurte com geleia de morango", span: "", width: 1080, height: 1080 },
-  { src: "/images/abacaxi-hero.webp", alt: "Calda de abacaxi caindo no pote", span: "", width: 1080, height: 1350 },
+  { src: "/images/morango-hero.webp", alt: "Geleia de morango sobre pote de iogurte artesanal TykaYurt", span: "md:row-span-2", width: 1080, height: 1350 },
+  { src: "/images/amora-post.webp", alt: "Pote de iogurte natural com geleia de amora", span: "", width: 1080, height: 1080 },
+  { src: "/images/abacaxi-post.webp", alt: "Pote de iogurte artesanal com geleia de abacaxi", span: "", width: 1080, height: 1080 },
+  { src: "/images/amora-hero.webp", alt: "Geleia de amora escorrendo sobre o pote TykaYurt", span: "md:row-span-2", width: 1080, height: 1350 },
+  { src: "/images/morango-post.webp", alt: "Pote TykaYurt de morango produzido fresco em Curitiba", span: "", width: 1080, height: 1080 },
+  { src: "/images/abacaxi-hero.webp", alt: "Geleia de abacaxi em pedaços sobre o iogurte TykaYurt", span: "", width: 1080, height: 1350 },
 ];
 
 export function Gallery() {
@@ -108,7 +108,7 @@ export function Gallery() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.3 }}
               src={open}
-              alt="Produto TykaYurt ampliado"
+              alt={`Imagem ampliada: ${SHOTS.find((shot) => shot.src === open)?.alt ?? "produto TykaYurt"}`}
               onClick={(event) => event.stopPropagation()}
               decoding="async"
               className="max-h-[85vh] max-w-full rounded-2xl object-contain"

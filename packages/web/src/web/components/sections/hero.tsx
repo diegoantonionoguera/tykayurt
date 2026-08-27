@@ -38,7 +38,7 @@ export function Hero() {
                 transition={{ duration: 0.7, delay: 0.05 }}
                 className="block"
               >
-                Iogurte artesanal
+                Iogurte artesanal em Curitiba
               </m.span>
               <m.span
                 initial={{ opacity: 0, y: 40 }}
@@ -106,7 +106,7 @@ export function Hero() {
             >
               <img
                 src="/images/morango-hero.webp"
-                alt="Pote de iogurte artesanal TykaYurt com geleia de morango"
+                alt="Pote TykaYurt de iogurte artesanal de morango, produzido fresco em Curitiba"
                 width="1080"
                 height="1350"
                 fetchPriority="high"

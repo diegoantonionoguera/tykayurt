@@ -26,7 +26,7 @@ export function Flavors() {
               Nossos sabores
             </p>
             <h2 className="mt-5 text-balance font-display text-[clamp(2.4rem,6vw,4.6rem)] text-flavor-content">
-              Escolha o seu
+              Sabores de iogurte natural
             </h2>
           </div>
           <p className="max-w-sm text-pretty text-flavor-muted">
@@ -59,7 +59,7 @@ export function Flavors() {
               <m.img
                 key={flavor.id}
                 src={flavor.image}
-                alt={`Iogurte TykaYurt sabor ${flavor.name}`}
+                alt={`Pote de iogurte artesanal sabor ${flavor.name} TykaYurt, produção fresca em Curitiba`}
                 width="1080"
                 height="1350"
                 initial={{ opacity: 0, scale: 0.95, rotate: -1.5 }}

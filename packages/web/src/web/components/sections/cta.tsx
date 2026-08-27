@@ -21,11 +21,11 @@ export function Cta() {
       >
         <p className="label text-cream/70">Pedidos pelo WhatsApp</p>
         <h2 className="mt-6 font-display text-[clamp(2.6rem,8vw,6rem)] text-cream">
-          Delicie-se sem culpa
+          Entrega de iogurte em Curitiba
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-cream/75">
           Fazemos apenas 18 potes por dia. Chame no WhatsApp, escolha o sabor e combinamos a
-          entrega em Curitiba.
+          entrega nos bairros Hauer, Xaxim, Boqueirão, Alto Boqueirão, Uberaba e Cajuru.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <a
