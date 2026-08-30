@@ -1,10 +1,21 @@
 import Index from "./pages/index";
+import Regulation from "./pages/regulation";
 import { Provider } from "./components/provider";
 
-function App() {
+type AppProps = {
+  pathname?: string;
+};
+
+function App({ pathname }: AppProps) {
+  const currentPath = pathname ?? (typeof window === "undefined" ? "/" : window.location.pathname);
+
   return (
     <Provider>
-      <Index />
+      {currentPath === "/regulamento" || currentPath === "/regulamento/" ? (
+        <Regulation />
+      ) : (
+        <Index />
+      )}
     </Provider>
   );
 }

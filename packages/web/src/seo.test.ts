@@ -31,6 +31,7 @@ describe("SEO assets", () => {
 
     expect(robots).toContain(`Sitemap: ${canonicalUrl}sitemap.xml`);
     expect(sitemap).toContain(`<loc>${canonicalUrl}</loc>`);
+    expect(sitemap).toContain(`<loc>${canonicalUrl}regulamento</loc>`);
     expect(llms).toContain("# TykaYurt");
     expect(llms).toContain("iogurte artesanal em Curitiba");
   });

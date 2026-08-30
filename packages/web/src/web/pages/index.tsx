@@ -4,6 +4,7 @@ import { Marquee } from "../components/sections/marquee";
 import { About } from "../components/sections/about";
 import { Flavors } from "../components/sections/flavors";
 import { Gallery } from "../components/sections/gallery";
+import { Referral } from "../components/sections/referral";
 import { Cta } from "../components/sections/cta";
 import { Footer } from "../components/sections/footer";
 
@@ -15,6 +16,7 @@ function Index() {
       <Marquee />
       <About />
       <Flavors />
+      <Referral />
       <Gallery />
       <Cta />
       <Footer />
