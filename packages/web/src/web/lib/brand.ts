@@ -34,7 +34,7 @@ export const FLAVORS: Flavor[] = [
     accent: "#c21863",
     bgLight: "#fff0f5",
     bgDark: "#3a0f22",
-    image: "/images/morango-hero.webp",
+    image: "/images/morango-sabor.svg",
   },
   {
     id: "amora",
@@ -45,7 +45,7 @@ export const FLAVORS: Flavor[] = [
     accent: "#a12ea0",
     bgLight: "#f8effa",
     bgDark: "#2a0f36",
-    image: "/images/amora-hero.webp",
+    image: "/images/amora-sabor.svg",
   },
   {
     id: "abacaxi",
@@ -56,6 +56,6 @@ export const FLAVORS: Flavor[] = [
     accent: "#e8a317",
     bgLight: "#fff7df",
     bgDark: "#3a2a06",
-    image: "/images/abacaxi-hero.webp",
+    image: "/images/abacaxi-sabor.svg",
   },
 ];
