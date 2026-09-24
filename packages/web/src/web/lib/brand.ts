@@ -12,9 +12,6 @@ export type Flavor = {
   name: string;
   tagline: string;
   description: string;
-  accent: string;
-  bgLight: string;
-  bgDark: string;
   image: string;
 };
 
@@ -31,9 +28,6 @@ export const FLAVORS: Flavor[] = [
     tagline: "O carro-chefe",
     description:
       "Morango de verdade, sentido em cada colherada. A geleia é feita com fruta de verdade, não com xarope — por isso o sabor é limpo, fresco, sem aquele doce artificial que a gente já cansou de comer.",
-    accent: "#c21863",
-    bgLight: "#fff0f5",
-    bgDark: "#3a0f22",
     image: "/images/morango-sabor.svg",
   },
   {
@@ -42,9 +36,6 @@ export const FLAVORS: Flavor[] = [
     tagline: "Intenso e profundo",
     description:
       "Amoras escuras em geleia rústica, com sementinhas e tudo. Sabor marcante para quem gosta de fruta ácida e encorpada.",
-    accent: "#a12ea0",
-    bgLight: "#f8effa",
-    bgDark: "#2a0f36",
     image: "/images/amora-sabor.svg",
   },
   {
@@ -53,9 +44,12 @@ export const FLAVORS: Flavor[] = [
     tagline: "Tropical e refrescante",
     description:
       "Abacaxi em pedaços caramelizados no próprio suco. Fresco, cítrico e leve — o preferido nos dias quentes.",
-    accent: "#e8a317",
-    bgLight: "#fff7df",
-    bgDark: "#3a2a06",
     image: "/images/abacaxi-sabor.svg",
   },
 ];
+
+export const REFERRAL = {
+  requiredPurchases: 2,
+  rewardSizeMl: 500,
+  message: "Oi! Quero participar do Compartilhou, Ganhou e pegar meu código de indicação",
+} as const;

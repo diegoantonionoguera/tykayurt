@@ -4,6 +4,9 @@ import AxeBuilder from "@axe-core/playwright";
 test.describe("TykaYurt landing", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/");
+    const intro = page.getByRole("dialog", { name: "Abertura TykaYurt" });
+    if (await intro.isVisible()) await page.getByRole("button", { name: "Pular abertura" }).click();
+    await expect(intro).toBeHidden();
   });
 
   test("shows only products currently for sale", async ({ page }) => {
@@ -42,12 +45,12 @@ test.describe("TykaYurt landing", () => {
     expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
   });
 
-  test("adapts to light and dark device preferences", async ({ page }) => {
+  test("preserves the brand theme with either device preference", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "light" });
-    await expect(page.locator("body")).toHaveCSS("background-color", "rgb(248, 246, 243)");
+    await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 246, 242)");
 
     await page.emulateMedia({ colorScheme: "dark" });
-    await expect(page.locator("body")).toHaveCSS("background-color", "rgb(33, 35, 37)");
+    await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 246, 242)");
   });
 
   test("opens the gallery dialog and closes it with Escape", async ({ page }) => {

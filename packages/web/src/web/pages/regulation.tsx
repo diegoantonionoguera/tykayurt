@@ -1,8 +1,5 @@
-import { FaWhatsapp } from "react-icons/fa6";
-import { whatsappLink } from "../lib/brand";
-
-const REFERRAL_MESSAGE =
-  "Oi! Quero participar do Compartilhou, Ganhou e pegar meu código de indicação";
+import { REFERRAL } from "../lib/brand";
+import { OrderButton } from "../components/ui/order-button";
 
 export default function Regulation() {
   return (
@@ -10,7 +7,7 @@ export default function Regulation() {
       <article className="mx-auto max-w-[820px] px-5 py-12 md:px-10 md:py-20">
         <a
           href="/"
-          className="inline-flex font-semibold text-magenta underline decoration-magenta/50 underline-offset-4 hover:text-plum"
+          className="inline-flex font-semibold text-brand underline decoration-brand/50 underline-offset-4 hover:text-brand"
         >
           ← Voltar para a página inicial
         </a>
@@ -45,9 +42,12 @@ export default function Regulation() {
                 WhatsApp Business oficial da TykaYurt.
               </li>
               <li>
-                A cada <strong>2 indicações que resultarem em compra confirmada e paga</strong>, o
-                indicador recebe <strong>1 pote de 250ml grátis</strong>, no sabor disponível de sua
-                escolha.
+                A cada{" "}
+                <strong>
+                  {REFERRAL.requiredPurchases} indicações que resultarem em compra confirmada e paga
+                </strong>
+                , o indicador recebe <strong>1 pote de {REFERRAL.rewardSizeMl}ml grátis</strong>, no
+                sabor disponível de sua escolha.
               </li>
             </ol>
           </section>
@@ -70,8 +70,8 @@ export default function Regulation() {
             <h2>4. Validade do código</h2>
             <ul>
               <li>
-                Cada código gerado é válido por <strong>30 dias corridos</strong> a partir da data de
-                emissão.
+                Cada código gerado é válido por <strong>30 dias corridos</strong> a partir da data
+                de emissão.
               </li>
               <li>
                 Indicações registradas após esse prazo não são contabilizadas com aquele código; um
@@ -84,13 +84,14 @@ export default function Regulation() {
             <h2>5. Sem limite de recompensas</h2>
             <ul>
               <li>
-                Não há limite de quantas vezes um cliente pode repetir o ciclo. A cada 2 novas
-                indicações válidas, um novo pote de 250ml grátis é concedido — sem teto mensal ou
-                total.
+                Não há limite de quantas vezes um cliente pode repetir o ciclo. A cada{" "}
+                {REFERRAL.requiredPurchases} novas indicações válidas, um novo pote de{" "}
+                {REFERRAL.rewardSizeMl}ml grátis é concedido — sem teto mensal ou total.
               </li>
               <li>
                 A recompensa não é acumulável em pedidos maiores (ex: 4 indicações não geram 1 pote
-                de 500ml); sempre 2 indicações = 1 pote de 250ml.
+                de 1 litro); sempre {REFERRAL.requiredPurchases} indicações = 1 pote de{" "}
+                {REFERRAL.rewardSizeMl}ml.
               </li>
             </ul>
           </section>
@@ -102,21 +103,22 @@ export default function Regulation() {
             </p>
             <ul>
               <li>
-                <strong>Autoindicação</strong>: cliente usando o próprio código com outro nome, número
-                de WhatsApp ou perfil para simular uma nova cliente.
+                <strong>Autoindicação</strong>: cliente usando o próprio código com outro nome,
+                número de WhatsApp ou perfil para simular uma nova cliente.
               </li>
               <li>
                 <strong>Indicação combinada sem compra real</strong>: pedido feito apenas para
-                &quot;ativar&quot; o código e depois cancelado, não retirado, ou não pago integralmente.
+                &quot;ativar&quot; o código e depois cancelado, não retirado, ou não pago
+                integralmente.
               </li>
               <li>
-                <strong>Mesmo endereço/mesmo número de contato</strong>: pedidos com dados de entrega
-                ou contato idênticos aos de uma indicação já usada por aquele mesmo código,
+                <strong>Mesmo endereço/mesmo número de contato</strong>: pedidos com dados de
+                entrega ou contato idênticos aos de uma indicação já usada por aquele mesmo código,
                 indicando duplicidade.
               </li>
               <li>
-                <strong>Conta nova sem histórico real de consumo</strong>: perfis criados apenas para
-                gerar código, sem intenção de compra recorrente.
+                <strong>Conta nova sem histórico real de consumo</strong>: perfis criados apenas
+                para gerar código, sem intenção de compra recorrente.
               </li>
             </ul>
             <p>
@@ -139,8 +141,8 @@ export default function Regulation() {
             <p>
               A TykaYurt pode alterar as regras deste programa ou encerrá-lo a qualquer momento,
               mediante aviso nos canais oficiais (Instagram e/ou WhatsApp Business), sem necessidade
-              de aviso prévio a cada participante individualmente. Indicações já validadas até a data
-              do encerramento serão honradas normalmente.
+              de aviso prévio a cada participante individualmente. Indicações já validadas até a
+              data do encerramento serão honradas normalmente.
             </p>
           </section>
 
@@ -154,16 +156,9 @@ export default function Regulation() {
         </div>
 
         <div className="mt-16 border-t border-line pt-10">
-          <a
-            href={whatsappLink(REFERRAL_MESSAGE)}
-            data-track="whatsapp_indicacao_regulamento"
-            target="_blank"
-            rel="noreferrer"
-            className="button-press inline-flex items-center gap-3 rounded-full bg-magenta px-7 py-4 text-sm font-bold text-white hover:bg-[#bc1f60] hover:scale-[1.02]"
-          >
-            <FaWhatsapp className="h-5 w-5" />
+          <OrderButton message={REFERRAL.message} tracking="whatsapp_indicacao_regulamento">
             Quero meu código
-          </a>
+          </OrderButton>
         </div>
       </article>
     </main>

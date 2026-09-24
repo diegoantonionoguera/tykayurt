@@ -1,7 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { FLAVORS, PRODUCT, WHATSAPP_NUMBER, whatsappLink } from "./brand";
+import { FLAVORS, PRODUCT, REFERRAL, WHATSAPP_NUMBER, whatsappLink } from "./brand";
 
 describe("brand data", () => {
+  it("keeps the approved referral reward", () => {
+    expect(REFERRAL.requiredPurchases).toBe(2);
+    expect(REFERRAL.rewardSizeMl).toBe(500);
+    expect(REFERRAL.message).toContain("Compartilhou, Ganhou");
+  });
   it("exposes only the flavors currently for sale", () => {
     expect(FLAVORS.map((flavor) => flavor.name)).toEqual(["Morango", "Amora", "Abacaxi"]);
     expect(JSON.stringify(FLAVORS)).not.toMatch(/Ameixa|Pêssego/i);

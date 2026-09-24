@@ -1,55 +1,27 @@
-# TykaYurt — Design
+# Identidade TykaYurt
 
-Landing page única (web) do iogurte artesanal TykaYurt (Curitiba — Hauer/Boqueirão). Visual editorial premium e escuro, com blocos alternando preto e creme, produto em destaque em escala grande e tipografia impactante. Objetivo único: levar o visitante ao pedido no WhatsApp.
+Identidade da demo-cliente aplicada em 21/09/2026, conforme solicitação do usuário.
 
-A interface segue automaticamente o tema claro ou escuro configurado no dispositivo. O modo claro usa superfícies creme quentes; o modo escuro preserva o carvão original. Os dois temas compartilham tokens semânticos e mantêm o magenta como cor principal de ação.
+- Tema sempre claro: creme #FFF6F2, papel #FFF8F0 e kraft suave #F3E7D7.
+- Kraft #D7C3A5 em superfícies e divisores; grafite #2E2A31 em texto e marca.
+- Vermelho #E31824 para destaques e seleção; verde #4D7F12 para pedido pelo WhatsApp, hover #3C650E.
+- Lobster 400 para marca e títulos; Open Sans para corpo, preços e controles.
+- Controles com raio 12px e alvos de 44–52px; fotos com raio 16px.
+- Preservar foco visível, movimento reduzido, proporções das imagens e layout responsivo.
 
-## Brand & Colors
+O site principal reutiliza os componentes da demo; Sabores mantém o seletor, quantidade e observações; o Link da Bio mantém os cards e destinos existentes. Todos usam o isologo oficial.
 
-Tokens em `packages/web/src/web/styles.css` (`:root`).
+A migração preservou preço, tamanho e contatos. Após solicitação do usuário, o prêmio do site principal foi atualizado para 1 pote de 500 ml a cada 2 indicações com compra, tanto na campanha quanto no regulamento.
 
-| Token | Hex | Uso |
-|-------|-----|-----|
-| ink | #212325 | Fundo escuro principal |
-| cream | #F8F6F3 | Fundo claro / texto sobre escuro |
-| magenta | #C21863 | CTAs, links, destaques com contraste AA |
-| pink | #F585B6 | Tags, ícones, detalhes |
-| plum | #810080 | Fundos de arte, marca, gradientes |
+Indicadores do site: 100% — Fruta de verdade na geleia; 0 — Conservantes e aromatizantes; 100% — Feito à mão, pote a pote; ♥ — Feito para quem você ama.
 
-Sabores (cor de acento por card): Morango #C21863 · Abacaxi #E8A317 · Amora #810080.
+Fonte de referência: demo-cliente/DESIGN.md no projeto principal. Não reintroduzir o tema magenta/roxo nem ativar automaticamente o tema escuro.
 
-## Typography
+## Refinamento Taste (22/09/2026)
 
-- **Display**: Lobster 400 — títulos, wordmark textual e números de destaque, com ênfase por escala e cor.
-- **Body**: Open Sans 400–800 — corpo, labels, botões e navegação. Line-height generoso (1.7), labels em uppercase com letter-spacing 0.2em.
+Modo: preservar. Direção: marca artesanal acolhedora, com o sistema visual existente, sem novas bibliotecas ou novos efeitos. DESIGN_VARIANCE 5, MOTION_INTENSITY 3 para a interface (a abertura aprovada fica intacta), VISUAL_DENSITY 4. As escolhas explícitas da marca prevalecem sobre os padrões genéricos da habilidade.
 
-## Tom de marca
-
-- Comunicar o frescor com orgulho e afirmação, nunca como desculpa ou limitação.
-- Não comparar a validade do TykaYurt com a de produtos concorrentes.
-- Evitar construções defensivas sobre conservação ou duração; destacar produção recente, cuidado artesanal e ausência de conservantes.
-
-## Pages & Sections
-
-- **Web — Home** (`packages/web/src/web/pages/index.tsx`), composta por seções em `src/web/components/sections/`:
-  1. `nav.tsx` — barra fixa translúcida, logo + CTA WhatsApp.
-  2. `hero.tsx` — fundo ink, pote em destaque com parallax, headline "IOGURTE DE VERDADE", selo 48h, CTA duplo.
-  3. `marquee.tsx` — faixa magenta rolando com as provas da marca.
-  4. `about.tsx` — bloco creme, método artesanal, números (48h, 18 un/dia, 0 conservantes).
-  5. `flavors.tsx` — seletor de Morango, Amora e Abacaxi; troca imagem + cor de fundo, informa o pote de 500ml e abre o WhatsApp com a mensagem pronta.
-  6. `gallery.tsx` — grid editorial com lightbox.
-  7. `cta.tsx` + `footer.tsx` — fechamento com WhatsApp e Instagram.
-
-## Motion
-
-Motion (framer-motion): reveals em stagger no scroll (`whileInView`), parallax leve no pote do hero, marquee infinito em CSS, transições de cor suaves na troca de sabor. Sem micro-animações dispersas.
-
-Todas as animações respeitam `prefers-reduced-motion`; nesse modo, parallax, marquee e deslocamentos são removidos ou reduzidos a transições discretas.
-
-## Key User Flow
-
-Abre → vê o produto e as provas (48h, fruta real, sem conservantes) → escolhe sabor e tamanho → clica "Pedir no WhatsApp" → abre wa.me/5541991731323 com mensagem pré-preenchida do sabor/tamanho.
-
-## Contatos
-
-WhatsApp (41) 91731323 → `https://wa.me/554191731323` · Instagram `@tykayurt_oficial`.
+- Link da Bio: áreas separadas para fotos e títulos, cards inclinados preservados, descrições de 13px e sombras mais suaves. Botões com altura mínima de 48px; imagens mantêm seu caráter sobreposto entre si, sem sobrepor texto.
+- Sabores: controles de sabor e quantidade com 56px, cantos externos do formulário de 12px, descrições das opções de 12px, preço e metadados alinhados.
+- Site: legendas dos indicadores e informações de compra em 13px, intervalo de 40px após o cabeçalho de sabores no desktop e fotos da galeria com contain, preservando seu conteúdo completo.
+- Conteúdos, URLs, tracking, fontes, paleta, ordem das seções e arquivos de abertura não foram modificados por este refinamento. A demo-cliente permanece como referência, sem alterações.

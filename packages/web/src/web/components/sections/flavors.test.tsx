@@ -35,7 +35,9 @@ describe("Flavors", () => {
     const explanation = screen.getByText("Abre o WhatsApp com o pedido já escrito. É só enviar.");
     const orderLink = screen.getByRole("link", { name: "Pedir Morango 500 ml" });
 
-    expect(explanation.compareDocumentPosition(orderLink) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(
+      explanation.compareDocumentPosition(orderLink) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
   });
 
   it("uses the approved small-batch copy", () => {

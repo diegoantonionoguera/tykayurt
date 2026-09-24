@@ -15,6 +15,7 @@ coverage
 *.lcov
 playwright-report/
 test-results/
+.migration-stage/
 
 # logs
 logs

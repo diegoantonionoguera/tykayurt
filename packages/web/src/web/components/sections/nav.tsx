@@ -1,91 +1,130 @@
-import { useEffect, useState } from "react";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
-import { INSTAGRAM_URL, whatsappLink } from "../../lib/brand";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
+import { whatsappLink } from "../../lib/brand";
+import { OrderButton } from "../ui/order-button";
 
 const LINKS = [
-  { href: "#sobre", label: "Sobre" },
+  { href: "#topo", label: "Início" },
   { href: "#sabores", label: "Sabores" },
-  { href: "#galeria", label: "Galeria" },
+  { href: "#sobre", label: "Nossa história" },
+  { href: "#entrega", label: "Onde encontrar" },
 ];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-
+  const [open, setOpen] = useState(false);
+  const [floating, setFloating] = useState(false);
+  const [active, setActive] = useState("#topo");
+  const menuButton = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const primaryActions = new Map<Element, boolean>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => primaryActions.set(entry.target, entry.isIntersecting));
+        setFloating(![...primaryActions.values()].some(Boolean));
+      },
+      { threshold: 0.2 },
+    );
+    document
+      .querySelectorAll(".order-button:not(.header-cta)")
+      .forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
   }, []);
-
+  useEffect(() => {
+    const sections = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive("#" + entry.target.id);
+        });
+      },
+      { rootMargin: "-76px 0px -55% 0px" },
+    );
+    LINKS.forEach((link) => {
+      const section = document.querySelector(link.href);
+      if (section) sections.observe(section);
+    });
+    return () => sections.disconnect();
+  }, []);
+  useEffect(() => {
+    const breakpoint = window.matchMedia("(min-width: 961px)");
+    const close = () => {
+      if (breakpoint.matches) setOpen(false);
+    };
+    breakpoint.addEventListener("change", close);
+    return () => breakpoint.removeEventListener("change", close);
+  }, []);
   return (
     <>
-      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
+      <a className="skip-link" href="#conteudo">
+        Pular para o conteúdo
+      </a>
       <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ${
-        scrolled ? "nav-material backdrop-blur-xl" : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10">
-        <a href="#topo" className="flex items-center gap-3">
-          <img
-            src="/images/isologo-tykayurt.webp"
-            alt=""
-            width="44"
-            height="44"
-            className="h-11 w-11 object-contain"
-          />
-          <picture className="shrink-0">
-            <source
-              media="(prefers-color-scheme: dark)"
-              srcSet="/images/logo-tykayurt-white.svg"
-            />
-            <img
-              src="/images/logo-tykayurt.svg"
-              alt="TykaYurt"
-              width="1080"
-              height="335"
-              className="h-8 w-auto md:h-9"
-            />
-          </picture>
-        </a>
-
-        <nav className="hidden items-center gap-9 md:flex">
-          {LINKS.map((l) => (
+        className="site-header"
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            setOpen(false);
+            menuButton.current?.focus();
+          }
+        }}
+      >
+        <div className="site-container header-row">
+          <a href="/#topo" className="site-logo" aria-label="TykaYurt, início">
+            <img src="/images/isologo-tykayurt.webp" alt="" width="44" height="44" />
+            <span>TykaYurt</span>
+          </a>
+          <nav aria-label="Navegação principal" className="desktop-nav">
+            {LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={"/" + link.href}
+                aria-current={active === link.href ? "location" : undefined}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <OrderButton
+            className="header-cta"
+            tracking="whatsapp_header"
+            message="Oi! Quero pedir um TykaYurt."
+          >
+            Pedir pelo WhatsApp
+          </OrderButton>
+          <button
+            ref={menuButton}
+            className="menu-toggle"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
+        <nav id="mobile-nav" className="mobile-nav" aria-label="Navegação mobile" hidden={!open}>
+          {LINKS.map((link) => (
             <a
-              key={l.href}
-              href={l.href}
-              className="label text-content-muted transition-colors hover:text-magenta"
+              key={link.href}
+              href={"/" + link.href}
+              onClick={() => setOpen(false)}
+              aria-current={active === link.href ? "location" : undefined}
             >
-              {l.label}
+              {link.label}
             </a>
           ))}
         </nav>
-
-        <div className="flex items-center gap-2">
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram da TykaYurt"
-            className="button-press grid h-11 w-11 place-items-center rounded-full border border-line text-content hover:border-magenta hover:text-magenta"
-          >
-            <FaInstagram className="h-5 w-5" />
-          </a>
-          <a
-            href={whatsappLink("Oi! Vim pelo site e quero pedir um TykaYurt.")}
-            data-track="whatsapp_header"
-            target="_blank"
-            rel="noreferrer"
-            className="button-press flex items-center gap-2 rounded-full bg-magenta px-5 py-3 text-sm font-bold text-white hover:bg-[#bc1f60] hover:scale-[1.02]"
-          >
-            <FaWhatsapp className="h-4 w-4" />
-            <span className="hidden sm:inline">Pedir agora</span>
-            <span className="sm:hidden">Pedir</span>
-          </a>
-        </div>
-      </div>
       </header>
+      {floating && (
+        <a
+          className="floating-whatsapp"
+          href={whatsappLink("Oi! Quero conhecer os sabores TykaYurt.")}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Pedir pelo WhatsApp"
+        >
+          <FaWhatsapp />
+        </a>
+      )}
     </>
   );
 }

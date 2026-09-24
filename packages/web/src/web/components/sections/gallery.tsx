@@ -3,12 +3,24 @@ import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
 const SHOTS = [
-  { src: "/images/morango-a.webp", alt: "Pote de iogurte artesanal TykaYurt com geleia de morango", span: "md:row-span-2", width: 720, height: 1080 },
-  { src: "/images/morango-b.webp", alt: "Pote de iogurte natural com geleia de morango", span: "", width: 1080, height: 1080 },
-  { src: "/images/amora-b.webp", alt: "Pote de iogurte artesanal com geleia de amora", span: "", width: 1080, height: 1080 },
-  { src: "/images/abacaxi-a.webp", alt: "Pote de iogurte TykaYurt com geleia de abacaxi", span: "md:row-span-2", width: 720, height: 1080 },
-  { src: "/images/morango-post.webp", alt: "Pote TykaYurt de morango produzido fresco em Curitiba", span: "", width: 1080, height: 1080 },
-  { src: "/images/abacaxi-hero.webp", alt: "Geleia de abacaxi em pedaços sobre o iogurte TykaYurt", span: "", width: 1080, height: 1350 },
+  {
+    src: "/images/morango-a.webp",
+    alt: "Iogurte TykaYurt com geleia de morango",
+    width: 720,
+    height: 1080,
+  },
+  {
+    src: "/images/amora-b.webp",
+    alt: "Iogurte TykaYurt com geleia de amora",
+    width: 1080,
+    height: 1080,
+  },
+  {
+    src: "/images/abacaxi-a.webp",
+    alt: "Iogurte TykaYurt com geleia de abacaxi",
+    width: 720,
+    height: 1080,
+  },
 ];
 
 export function Gallery() {
@@ -35,20 +47,21 @@ export function Gallery() {
 
   return (
     <section id="galeria" className="bg-page py-24 md:py-32">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10">
+      <div className="site-container">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="label text-magenta">Galeria</p>
+            <p className="label text-brand">Galeria</p>
             <h2 className="mt-5 text-balance font-display text-[clamp(2.4rem,6vw,4.6rem)] text-content">
-              Direto da cozinha
+              Direto da nossa cozinha
             </h2>
           </div>
-          <p className="max-w-sm text-pretty text-content-muted">
-            Clique para ampliar.
+          <p className="gallery-description max-w-sm text-pretty text-content-muted">
+            Sabores e pequenos detalhes que fazem parte da TykaYurt. Toque nas imagens para ver de
+            perto.
           </p>
         </div>
 
-        <div className="mt-12 grid auto-rows-[220px] grid-cols-2 gap-4 md:grid-cols-4 md:auto-rows-[240px]">
+        <div className="gallery-grid mt-12 grid auto-rows-[220px] grid-cols-2 gap-4 md:grid-cols-4 md:auto-rows-[240px]">
           {SHOTS.map((shot, i) => (
             <m.button
               key={shot.src + i}
@@ -56,12 +69,12 @@ export function Gallery() {
                 triggerRef.current = event.currentTarget;
                 setOpen(shot.src);
               }}
-              initial={{ opacity: 0, y: 30 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: (i % 4) * 0.08 }}
               aria-label={`Ampliar: ${shot.alt}`}
-              className={`group relative overflow-hidden rounded-2xl bg-surface-alt ${shot.span}`}
+              className="group relative overflow-hidden rounded-2xl bg-surface-alt"
             >
               <img
                 src={shot.src}
@@ -72,7 +85,10 @@ export function Gallery() {
                 decoding="async"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <span aria-hidden="true" className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/20" />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/20"
+              />
             </m.button>
           ))}
         </div>

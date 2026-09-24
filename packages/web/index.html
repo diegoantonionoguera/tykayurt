@@ -3,9 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="color-scheme" content="light dark" />
-		<meta name="theme-color" content="#f8f6f3" media="(prefers-color-scheme: light)" />
-		<meta name="theme-color" content="#212325" media="(prefers-color-scheme: dark)" />
+		<meta name="color-scheme" content="light" />
+		<meta name="theme-color" content="#fff6f2" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<link rel="canonical" href="https://tykayurt-web.vercel.app/" />
@@ -112,36 +111,7 @@
 		</script>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ6BBBRRH4"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-			gtag("config", "G-YQ6BBBRRH4");
-		</script>
-		<!-- Meta Pixel Code -->
-		<script>
-			!(function (f, b, e, v, n, t, s) {
-				if (f.fbq) return;
-				n = f.fbq = function () {
-					n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-				};
-				if (!f._fbq) f._fbq = n;
-				n.push = n;
-				n.loaded = !0;
-				n.version = "2.0";
-				n.queue = [];
-				t = b.createElement(e);
-				t.async = !0;
-				t.src = v;
-				s = b.getElementsByTagName(e)[0];
-				s.parentNode.insertBefore(t, s);
-			})(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-			fbq("init", "8205101376167714");
-			fbq("track", "PageView");
-		</script>
-		<!-- End Meta Pixel Code -->
+		<script defer src="/analytics.js"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -149,8 +119,10 @@
 			rel="stylesheet"
 		/>
 		<title>Iogurte artesanal em Curitiba | TykaYurt</title>
+		<link rel="stylesheet" href="/intro/intro.css" />
 	</head>
 	<body>
+		<script src="/intro/intro.js"></script>
 		<div id="root"></div>
 		<noscript>
 			<img
@@ -162,34 +134,5 @@
 			/>
 		</noscript>
 		<script type="module" src="/src/web/main.tsx"></script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				var waLinks = document.querySelectorAll(
-					'a[href*="wa.me"], a[href*="whatsapp.com"], [data-track*="whatsapp"]',
-				);
-				waLinks.forEach(function (link) {
-					link.addEventListener("click", function () {
-						var posicao = this.getAttribute("data-track") || "whatsapp_desconhecido";
-						if (typeof gtag === "function") {
-							gtag("event", "click_whatsapp", { posicao: posicao });
-						}
-						if (typeof fbq === "function") {
-							fbq("track", "Lead", { posicao: posicao });
-						}
-					});
-				});
-
-				var secLinks = document.querySelectorAll(
-					'[data-track="ver_sabores"], a[href*="#sabores"]',
-				);
-				secLinks.forEach(function (link) {
-					link.addEventListener("click", function () {
-						if (typeof fbq === "function") {
-							fbq("trackCustom", "CliqueSecundario", { origem: "ver_sabores" });
-						}
-					});
-				});
-			});
-		</script>
 	</body>
 </html>
