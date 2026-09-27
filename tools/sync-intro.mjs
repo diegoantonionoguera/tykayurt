@@ -9,7 +9,7 @@ const targets = [
   path.resolve(root, "../tykayurt-link-da-bio/intro"),
   path.resolve(root, "../TykaYurt Sabores/flavors-showcase/public/intro"),
 ];
-const files = ["intro.js", "intro.css", "logo.webp", "logo-reveal.mp4"];
+const files = ["intro.js", "intro.css", "logo.webp", "logo-reveal.mp4", "logo-mobile-20260926.mp4", "logo-desktop-20260926.mp4"];
 const checkOnly = process.argv.includes("--check");
 let differences = 0;
 for (const target of targets) {
